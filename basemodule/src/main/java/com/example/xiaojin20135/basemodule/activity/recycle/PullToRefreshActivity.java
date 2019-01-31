@@ -1,5 +1,6 @@
 package com.example.xiaojin20135.basemodule.activity.recycle;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
@@ -93,6 +94,18 @@ public abstract class PullToRefreshActivity<T> extends BaseRecyclerActivity<T> {
                // showToast (this,R.string.no_more);
                 rvAdapter.loadMoreEnd(false);
             }
+        }
+    }
+
+    /**
+     * @author: yuwenqqinag
+     * @date: 2018/11/7 11:16
+     * @description: 根据返回情况，判断是否更新列表。
+     */
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            loadFirstData();
         }
     }
 }

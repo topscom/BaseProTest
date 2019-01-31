@@ -6,7 +6,7 @@ import com.example.xiaojin20135.basemodule.R;
 public final class CustomLoadMoreView extends LoadMoreView {
 
     @Override public int getLayoutId() {
-        return R.layout.view_load_more;
+        return R.layout.custom_load_view;
     }
 
     @Override protected int getLoadingViewId() {

@@ -285,7 +285,7 @@ public abstract class BaseRecyclerActivity<T> extends ToolBarActivity {
      * @createon 2018-07-16 15:39
      * @Describe 加载更多监听事件
      */
-    private RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener () {
+    protected RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener () {
         @Override
         public void onScrolled (RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled (recyclerView, dx, dy);

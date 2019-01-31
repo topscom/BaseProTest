@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.xiaojin20135.basemodule.R;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView;
 
@@ -39,7 +40,21 @@ public abstract class PullToRefreshActivity<T> extends BaseRecyclerActivity<T> {
         rvAdapter.setLoadMoreView(new CustomLoadMoreView());
         swipeMenuRecyclerView.setAdapter (rvAdapter);
         swipeRefreshLayout .setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent, R.color.colorPrimaryDark);
-
+        rvAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
+            @Override
+            public void onLoadMoreRequested() {
+                loadMoreData();
+            }
+        });
+    }
+    /**
+     * @author lixiaojin
+     * @createon 2018-07-14 16:27
+     * @Describe 设置加载更多
+     */
+    protected void setLoadMoreEnable(){
+        //添加滚动监听
+       // swipeMenuRecyclerView.addOnScrollListener (onScrollListener);
     }
 
     @Override

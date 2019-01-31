@@ -76,10 +76,14 @@ public abstract class PullToRefreshActivity<T> extends BaseRecyclerActivity<T> {
     protected void showList(List<T> dataList){
         if(dataList != null && dataList.size () > 0){
             if(page == 1){
-                rvAdapter.setNewData (new ArrayList<T> ());
+                rvAdapter.setNewData (dataList);
+            }else{
+                if(dataList!=null&&dataList.size()>0){
+                    rvAdapter.addData (dataList);
+                }
             }
-            rvAdapter.addData (dataList);
-            if(dataList.size ()<rows&&page != 1){
+
+            if(dataList.size ()<rows){
                 canLoadMore=false;
                 rvAdapter.loadMoreEnd(page==1);
                // showToast (this,R.string.no_more);

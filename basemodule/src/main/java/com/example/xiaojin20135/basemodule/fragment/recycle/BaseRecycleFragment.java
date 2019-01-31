@@ -56,10 +56,10 @@ public abstract class BaseRecycleFragment<T> extends BaseFragment {
     LinearLayoutManager linearLayoutManager = null;
     public int page = 1;
     public String sidx = "";
-    private String sord = "desc";
-    private int rows = 10;//每页显示的记录数
+    protected String sord = "desc";
+    protected int rows = 10;//每页显示的记录数
 
-    private BaseActivity baseActivity;
+    protected BaseActivity baseActivity;
 
 
     public BaseRecycleFragment () {

@@ -6,6 +6,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.loadmore.LoadMoreView;
 import com.example.xiaojin20135.basemodule.R;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView;
 
@@ -39,7 +40,7 @@ public abstract class PullToRefreshActivity<T> extends BaseRecyclerActivity<T> {
             throw new RuntimeException ("layoutResId is null!");
         }
         rvAdapter = new RvAdapter (layoutResId,new ArrayList<T>());
-        rvAdapter.setLoadMoreView(new CustomLoadMoreView());
+        rvAdapter.setLoadMoreView(setLoadMoreView());
         swipeMenuRecyclerView.setAdapter (rvAdapter);
         swipeRefreshLayout .setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent, R.color.colorPrimaryDark);
         rvAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
@@ -48,6 +49,9 @@ public abstract class PullToRefreshActivity<T> extends BaseRecyclerActivity<T> {
                 loadMoreData();
             }
         });
+    }
+    public LoadMoreView setLoadMoreView(){
+        return new CustomLoadMoreView();
     }
     /**
      * @author lixiaojin

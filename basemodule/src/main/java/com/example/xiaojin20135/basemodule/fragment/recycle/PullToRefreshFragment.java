@@ -57,6 +57,8 @@ public abstract class PullToRefreshFragment<T> extends BaseRecycleFragment<T> {
      * @Describe  数据展示
      */
     protected void showList(List<T> dataList){
+        swipeRefreshLayout.setRefreshing(false);
+        rvAdapter.setEnableLoadMore(true);
         if(dataList != null && dataList.size () > 0){
             if(page == 1){
                 rvAdapter.setNewData (new ArrayList<T>());

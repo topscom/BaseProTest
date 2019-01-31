@@ -11,6 +11,7 @@ import com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public abstract class PullToRefreshActivity<T> extends BaseRecyclerActivity<T> {
 
@@ -76,12 +77,9 @@ public abstract class PullToRefreshActivity<T> extends BaseRecyclerActivity<T> {
     protected void showList(List<T> dataList){
         if(dataList != null && dataList.size () > 0){
             if(page == 1){
-                rvAdapter.setNewData (dataList);
-            }else{
-                if(dataList!=null&&dataList.size()>0){
-                    rvAdapter.addData (dataList);
-                }
+                rvAdapter.setNewData (new ArrayList<T> ());
             }
+            rvAdapter.addData (dataList);
 
             if(dataList.size ()<rows){
                 canLoadMore=false;

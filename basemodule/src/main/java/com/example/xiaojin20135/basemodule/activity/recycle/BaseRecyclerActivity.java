@@ -49,14 +49,14 @@ public abstract class BaseRecyclerActivity<T> extends ToolBarActivity {
     //子布局ID
     protected int layoutResId = -1;
     //是否可刷新，默认可以
-    public boolean canRefresh = true;
-    public boolean canLoadMore = true;
-    private int lastVisibleItem;
+    protected boolean canRefresh = true;
+    protected boolean canLoadMore = true;
+    protected int lastVisibleItem;
     LinearLayoutManager linearLayoutManager = null;
     public int page = 1;
     public String sidx = "";
-    private String sord = "desc";
-    private int rows = 10;//每页显示的记录数
+    protected String sord = "desc";
+    protected int rows = 10;//每页显示的记录数
 
 
     @Override
@@ -192,7 +192,7 @@ public abstract class BaseRecyclerActivity<T> extends ToolBarActivity {
      * @createon 2018-07-14 16:31
      * @Describe 设置布局管理器
      */
-    private void chooseListTye(int listType,boolean isVertical){
+    protected void chooseListTye(int listType,boolean isVertical){
         switch (listType) {
             case LINEAR_LAYOUT_MANAGER:
                 linearLayoutManager = new LinearLayoutManager(this);
